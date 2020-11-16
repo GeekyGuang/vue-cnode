@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  {{msg}}
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    // 挂载
+    el: '#app',
+
+    // 数据
+    data: {
+      msg: 'hello world'
+    },
+
+    // 生命周期钩子
+    created(){
+      alert("我被创建了，还未挂载")
+    },
+    mounted(){
+      alert("我被挂载了，还未渲染")
+    }
+  })
+
+  // .$访问Vue实例的属性
+  console.log(app.$el)
+  console.log(app.$data)
+
+  // .访问data的属性
+  console.log(app.msg)
+</script>
+</body>
+</html>
