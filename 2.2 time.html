@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>time</title>
+</head>
+<body>
+<div id="dateApp">
+  {{date}}
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#dateApp',
+    data: {
+      date: new Date()
+    },
+    mounted() {
+      this.timer = setInterval(() => {
+        this.date = new Date()
+      }, 1000)
+    },
+    beforeDestory() {
+      if (this.timer)
+        clearInterval(this.timer)
+    }
+  })
+</script>
+</body>
+</html>
