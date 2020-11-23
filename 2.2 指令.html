@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>time</title>
+  <style>
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="dateApp">
+  {{date | format}}
+  <hr>
+  <span v-text="text"></span>
+  <hr>
+  <div v-html="html" v-bind:class="className"></div>
+  <hr>
+  <button v-on:click="autoIncrease">{{count}}</button>
+</div>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  function addZero(value){
+    return value < 10 ? '0' + value : value
+  }
+
+  let app = new Vue({
+    el: '#dateApp',
+    data: {
+      date: new Date(),
+      text: '我爱北京天安门',
+      html: '<h2> 江城子 </h2>',
+      count: 0,
+      className: 'red'
+    },
+
+    // 自定义方法都写在methods里
+    methods:{
+      autoIncrease(){
+        this.count += 1
+      }
+    },
+    // 过滤器
+    // 参考: https://cn.vuejs.org/v2/guide/filters.html
+    filters:{
+      format(value){
+        let date = new Date(value)  // 时间格式化
+        let year = date.getFullYear()
+        let month = addZero(date.getMonth() + 1 )
+        let hours = addZero(date.getHours())
+        let day = addZero(date.getDate())
+        let minutes = addZero(date.getMinutes())
+        let seconds = addZero(date.getSeconds())
+
+        return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds
+
+      }
+    },
+
+    // 生命周期钩子
+    mounted() {
+      this.timer = setInterval(() => {
+        this.date = new Date()
+      }, 1000)
+    },
+    beforeDestory() {
+      if (this.timer)
+        clearInterval(this.timer)
+    }
+  })
+</script>
+</body>
+</html>
