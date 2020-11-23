@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>time</title>
+</head>
+<body>
+<div id="dateApp">
+  {{date | format}}
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  function addZero(value){
+    return value < 10 ? '0' + value : value
+  }
+
+  let app = new Vue({
+    el: '#dateApp',
+    data: {
+      date: new Date()
+    },
+
+    // 过滤器
+    // 参考: https://cn.vuejs.org/v2/guide/filters.html
+    filters:{
+      format(value){
+        let date = new Date(value)  // 时间格式化
+        let year = date.getFullYear()
+        let month = addZero(date.getMonth() + 1 )
+        let hours = addZero(date.getHours())
+        let day = addZero(date.getDate())
+        let minutes = addZero(date.getMinutes())
+        let seconds = addZero(date.getSeconds())
+
+        return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds
+
+      }
+    },
+    mounted() {
+      this.timer = setInterval(() => {
+        this.date = new Date()
+      }, 1000)
+    },
+    beforeDestory() {
+      if (this.timer)
+        clearInterval(this.timer)
+    }
+  })
+</script>
+</body>
+</html>
