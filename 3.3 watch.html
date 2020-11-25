@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>watch</title>
+</head>
+<body>
+<div id="app">
+  {{fullName}}
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: "#app",
+    data: {
+      firstName: "jacky",
+      lastName: 'chan',
+      fullName: 'jackychan'
+    },
+    watch:{
+      firstName(){
+        this.fullName = this.firstName + this.lastName
+      },
+      lastName(){
+        this.fullName = this.firstName + this.lastName
+      }
+    }
+  })
+</script>
+</body>
+</html>
