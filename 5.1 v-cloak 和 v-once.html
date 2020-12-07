@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  v-cloak 遮掩，在编译完成前都不显示<br>
+  <p v-cloak>{{msg}}</p>
+  <hr>
+  v-once 只渲染一次<br>
+  <h1 v-once>{{msg}}</h1>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  // while(true){}
+  let app = new Vue({
+    el: "#app",
+    data: {
+      msg: "我爱你中国"
+    }
+  })
+</script>
+</body>
+</html>
