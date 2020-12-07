@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  font-size要加引号，否则只能写成fontSize-->
+  <div :style="{color: colorName, 'font-size': font + 'px'}">hello world</div>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      colorName: 'red',
+      font: 24
+    }
+  })
+</script>
+</body>
+</html>
