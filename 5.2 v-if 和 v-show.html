@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  key唯一则不被复用-->
+<!--  v-if实时渲染，v-show一开始就渲染，只改变display-->
+  <div v-if="type === 'name'">
+    用户名：<input type="text" placeholder="请输入用户名" key="name">
+  </div>
+  <div v-else>
+    密码：<input type="text" placeholder="请输入密码" key="pwd">
+  </div>
+  <button v-show="2 < 3" @click="toggle">切换</button>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: "#app",
+    data: {
+      type: 'name'
+    },
+    methods: {
+      toggle(){
+        this.type = (this.type === 'name' ? 'password' : 'name')
+      }
+    }
+  })
+</script>
+</body>
+</html>
