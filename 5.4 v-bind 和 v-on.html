@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .redbg {
+      background: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+    <button v-bind:class="{redbg: redboolean}" v-on:click="toggle">点我</button>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: "#app",
+    data: {
+      redboolean: true
+    },
+    methods:{
+      toggle(){
+        this.redboolean = !this.redboolean
+      }
+    }
+  })
+</script>
+</body>
+</html>
