@@ -12,15 +12,25 @@
   <textarea name="" id="" cols="30" rows="10" v-model="text">我爱北京天安门</textarea>
   {{text}}
   <hr>
-  单个单选框 ：
-  <input type="radio" name="" :checked="radioCheck"> <br>
+  单个单选框 ：<br>
+  v-bind: <input type="radio" name="" :checked="radioCheck"> <br>
+  v-model不生效: <input type="radio" name="" v-mdoel="radioCheck"> <br>  {{radioCheck}} <br>
   多个单选框：
   <input type="radio" name="nickname" value="张三" v-model="nick"> 张三
   <input type="radio" name="nickname" value="李四" v-model="nick"> 李四
   <input type="radio" name="nickname" value="王五" v-model="nick"> 王五 <br>
   {{nick}}
   <hr>
-  单个多选框：
+  单个多选框：<br>
+  v-bind: <input type="checkbox" :checked="radioCheck"> <br>
+  v-model: <input type="checkbox" v-model="radioCheck"> {{radioCheck}}
+  <br>---------------------------------<br>
+  多个多选框:用v-model绑定数组，若是绑定字符串，则会转成true/false <br>
+  <input type="checkbox" value="张三" v-model="multiCheck"> 张三
+  <input type="checkbox" value="李四" v-model="multiCheck"> 李四
+  <input type="checkbox" value="王五" v-model="multiCheck"> 王五
+  <input type="checkbox" value="赵六" v-model="multiCheck"> 赵六 <br>
+  {{multiCheck}}
 
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
@@ -31,7 +41,8 @@
       value: '我是input',
       text: '我是textarea',
       radioCheck: true,
-      nick:''
+      nick:'',
+      multiCheck: []
     }
   })
 </script>
