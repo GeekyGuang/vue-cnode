@@ -11,6 +11,16 @@
   {{value}} <br>
   <textarea name="" id="" cols="30" rows="10" v-model="text">我爱北京天安门</textarea>
   {{text}}
+  <hr>
+  单个单选框 ：
+  <input type="radio" name="" :checked="radioCheck"> <br>
+  多个单选框：
+  <input type="radio" name="nickname" value="张三" v-model="nick"> 张三
+  <input type="radio" name="nickname" value="李四" v-model="nick"> 李四
+  <input type="radio" name="nickname" value="王五" v-model="nick"> 王五 <br>
+  {{nick}}
+  <hr>
+  单个多选框：
 
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
@@ -19,7 +29,9 @@
     el: "#app",
     data: {
       value: '我是input',
-      text: '我是textarea'
+      text: '我是textarea',
+      radioCheck: true,
+      nick:''
     }
   })
 </script>
