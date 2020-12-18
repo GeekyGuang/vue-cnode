@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  v-model在input和textarea中的用法 <br>
+  <input type="text" v-model="value">
+  {{value}} <br>
+  <textarea name="" id="" cols="30" rows="10" v-model="text">我爱北京天安门</textarea>
+  {{text}}
+
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: "#app",
+    data: {
+      value: '我是input',
+      text: '我是textarea'
+    }
+  })
+</script>
+</body>
+</html>
