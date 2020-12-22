@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <btn-component></btn-component>
+  <btn-component></btn-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data:{
+      count: 0
+    },
+    components:{
+      'btn-component': {
+        template: '<button @click="count++">{{count}}</button>',
+        // data必须是方法
+        data(){
+          return {count: 0}
+        }
+  }
+    }
+  })
+</script>
+</body>
+</html>
