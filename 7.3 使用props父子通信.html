@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <child-component msg="我是父组件的msg"></child-component>
+
+  使用v-bind，识别的是JS语法
+  <child-component2 msg="[1,2,3]"></child-component2>
+  <child-component2 :msg="[1,2,3]"></child-component2>
+
+  动态绑定父组件中的data
+  <child-component :msg="message"></child-component>
+  <input type="text" v-model="message">
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data:{
+      message:"请输入"
+    },
+    components:{
+      'child-component':{
+        // props是字符串数组的形式，如果要指定类型，则用对象形式
+        props:['msg'],
+        template:'<div>{{msg}}</div>'
+      },
+      'child-component2':{
+        props:['msg'],
+        template:'<div>{{msg.length}}</div>'
+     }
+    }
+  })
+</script>
+</body>
+</html>
