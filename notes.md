@@ -13,3 +13,8 @@ Vue.component('blog-post', {
 
 重申一次，如果你使用字符串模板，那么这个限制就不存在了。
 
+在组件的template中，html中的props也不能用驼峰式
+
+data中this.xxx只能用驼峰，不能用-
+
+
