@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{total}}
+  <!--  通过$event访问被抛出的值-->
+  <my-component v-model="total"></my-component>
+  <input type="text" v-model="message">{{message}}
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('my-component',{
+
+    // v-model监听input事件
+    template:`<div>
+                <button @click="$emit('input',++count)">+1</button>
+                <button @click="$emit('input',--count)">-1</button>
+              </div>`,
+    data(){
+      return {
+        count: 0
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{
+      total: 0,
+      message:''
+    },
+    methods:{}
+  })
+</script>
+</body>
+</html>
