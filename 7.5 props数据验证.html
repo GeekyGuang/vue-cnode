@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数据验证</title>
+</head>
+<body>
+<div id="app">
+  <my-component :prop-a="123" :prop-c="[1,2,3]" :prop-d="'1233'" :prop-f="2"></my-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('my-component',{
+    props:{
+      propA:Number,
+      propB:{
+        type: String,
+        default: 'hello'
+      },
+      propC:{
+        type: Array,
+        required: true
+      },
+      // 可能类型
+      propD:[Number,String,Array],
+      propE:{
+        type: Object,
+        default(){
+          return {name:'jack',age:18}
+        }
+      },
+
+      // 自定义验证函数
+      propF:{
+        validator(value){
+          return  value > 1
+        }
+      }
+    },
+
+    template:'<div>{{propA}}--{{propB}}--{{propC}}--{{propD}}--{{propE}}--{{propF}}</div>'
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{
+
+    }
+  })
+</script>
+</body>
+</html>
