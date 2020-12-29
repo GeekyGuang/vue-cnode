@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{fff}}
+  <a-component></a-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      fff: '我是父组件'
+    },
+    components:{
+      'a-component':{
+        template: '<button @click="getParentMsg">点我修改父组件信息</button>',
+        data(){
+          return {
+            aaa: '我是A组件'
+          }
+        },
+        methods:{
+          getParentMsg(){
+            // 获取父组件数据
+            this.$parent.fff = "我被修改了"
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
