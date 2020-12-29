@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <a-component></a-component>
+  <b-component></b-component>
+</div>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('a-component', {
+    template:'<div>{{aaa}}</div>',
+    data(){
+      return {
+        aaa: '我是A组件'
+      }
+    },
+    created(){
+      this.$root.bus.$on('messageFromB',function(value){
+        alert(value)
+      })
+    }
+  })
+
+  Vue.component('b-component', {
+    template:'<div>我是B组件<button @click="callA">点我给A组件传消息</button></div>',
+    data(){
+      return {
+        bbb: 'hello,我是B组件'
+      }
+    },
+    methods:{
+      callA(){
+        this.$root.bus.$emit('messageFromB', this.bbb)
+      }
+    }
+  })
+
+  let app = new Vue({
+    el: '#app',
+    data: {
+      bus: new Vue()
+    }
+  })
+</script>
+</body>
+</html>
