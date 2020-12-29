@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <a-component>
+    apple
+  </a-component>
+  <b-component>
+    banana
+    <p slot="content">happy new year</p>
+    <p slot="content">happy new year222</p>
+    <template v-slot:content>
+      <h1>v-slot只能用在template上,template会把slot=给替换掉</h1>
+    </template>
+    <p>hahahaha</p>
+  </b-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data:{},
+    components:{
+      'a-component':{
+        template: `<div>
+                    A
+                    <slot></slot>
+                   </div>`
+      },
+      'b-component':{
+        template:`<div>
+                    B
+                    <div>
+                       <slot name="content"></slot>
+                    </div>
+
+                   <slot></slot>
+                   </div>`
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
 </head>
 <body>
-$END$
+<div id="app">
+  <button @click="changeRefs">点我</button>
+  <a-component ref="a"></a-component>
+  <b-component ref="b"></b-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      fff: '我是父组件'
+    },
+    methods:{
+      changeRefs(){
+        this.$refs.b.bbb = "good morning"
+      }
+    },
+    components:{
+      'a-component': {
+        template: '<div>{{aaa}}</div>',
+        data() {
+          return {
+            aaa: '我是A组件'
+          }
+        }
+      },
+        'b-component':{
+          template: '<div>{{bbb}}</div>',
+          data(){
+            return {
+              bbb: '我是B组件'
+            }
+          }
+      }
+    }
+  })
+</script>
 </body>
 </html>
