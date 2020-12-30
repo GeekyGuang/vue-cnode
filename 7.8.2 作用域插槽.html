@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  作用域插槽用于获取子组件插槽的数据
+  <my-component>
+    <template v-slot:default="slotProps">{{slotProps.user.surName}}</template>
+  </my-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('my-component',{
+    template:'<div><slot :user="user"> {{user.firstName}}</slot></div>',
+    data(){
+      return {
+        user: {firstName: 'Jack', surName:'Lee'}
+      }
+    }
+  })
+  let app = new Vue({
+    el:'#app',
+    data:{}
+  })
+</script>
+</body>
+</html>
