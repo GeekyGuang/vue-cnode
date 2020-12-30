@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  通过Vue的component标签，修改绑定is属性进行组件切换
+  <component :is="compName"></component>
+  <button @click="changeComponent('A')">A</button>
+  <button @click="changeComponent('B')">B</button>
+  <button @click="changeComponent('C')">C</button>
+  <button @click="changeComponent('D')">D</button>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      compName:'compA'
+    },
+    components:{
+      'compA':{
+        template:'<div>A</div>'
+      },
+      'compB':{
+        template:'<div>B</div>'
+      },
+      'compC':{
+        template:'<div>C</div>'
+      },
+      'compD':{
+        template:'<div>D</div>'
+      },
+    },
+    methods:{
+      changeComponent(tagName) {
+        this.compName = 'comp' + tagName
+      }
+    }
+  })
+</script>
+</body>
+</html>
