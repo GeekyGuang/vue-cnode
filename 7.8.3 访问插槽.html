@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <my-component>
+    <span slot="ss">111111111111111</span>
+    <span slot="cc">2222222222222222</span>
+  </my-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data:{},
+    components: {
+      'my-component':{
+        template: '<div><slot name="ss"></slot><slot name="cc"></slot></div>',
+        mounted(){
+          // 必须父组件有给slot传值, $slots才能访问到
+          let node = this.$slots.ss
+          console.log(node)
+          console.log(node[0].elm.innerText)
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
