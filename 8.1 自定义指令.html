@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app" v-demo:foo.a.b="message">
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.directive('demo', {
+    bind(el,binding,vnode){
+      let s = JSON.stringify
+      el.innerHTML =
+        'name: ' + s(binding.name) + '<br>'+
+        'value: ' + s(binding.value) + '<br>' +
+        'expression: ' + s(binding.expression) + '<br>' +
+        'argument: ' + s(binding.arg) + '<br>' +
+        'modifiers: ' + s(binding.modifiers) + '<br>' +
+        'vnode keys: ' + Object.keys(vnode).join(', ')
+    }
+  })
+
+  let app = new Vue({
+    el: '#app',
+    data:{
+      message: 'hello'
+    }
+  })
+</script>
+</body>
+</html>

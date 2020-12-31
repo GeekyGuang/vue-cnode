@@ -17,4 +17,4 @@ Vue.component('blog-post', {
 
 data中this.xxx只能用驼峰，不能用-
 
-
+$emit事件名不要用驼峰式，html不区分大小写
