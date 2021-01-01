@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <my-component :level="level">我爱你北京</my-component>
+</div>
+
+<!--<template id="child">-->
+<!--  <div>-->
+<!--    <h1 v-if="level===1">-->
+<!--      <slot></slot>-->
+<!--    </h1>-->
+<!--    <h2 v-if="level===2">-->
+<!--      <slot></slot>-->
+<!--    </h2>-->
+<!--    <h3 v-if="level===3">-->
+<!--      <slot></slot>-->
+<!--    </h3>-->
+<!--  </div>-->
+<!--</template>-->
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  // Vue.component('my-component', {
+  //   props:['level'],
+  //   template:'#child'
+  // })
+  Vue.component('my-component',{
+    props:['level'],
+    render(createElement){
+      return createElement('h'+this.level, this.$slots.default)
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{
+      level: 1
+    }
+  })
+</script>
+</body>
+</html>
