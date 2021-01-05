@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <child></child>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('child',{
+    render(createElement){
+      // 第二个参数可以传递html属性
+      return createElement({
+        template: '<div>我爱北京天安门</div>'
+      }, {
+        class:{
+          foo: true,
+          bazz: false
+        },
+        style:{
+          color: 'red',
+          fontSize: '30px'
+        },
+        attrs:{
+          src:'www.baidu.com',
+          id: 'hhh'
+        },
+        domProps:{
+          innerHTML:'<span>better late than never</span>'
+        }
+      })
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{}
+  })
+</script>
+</body>
+</html>
