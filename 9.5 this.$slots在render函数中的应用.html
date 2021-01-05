@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <my-component>
+    <p>第一段内容</p>
+    <p>第二段内容</p>
+    <h1 slot="header">标题</h1>
+    <h6 slot="footer">底部信息</h6>
+  </my-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  // 第三个参数存的是VNODE虚拟节点数组
+  Vue.component('my-component',{
+    render(createElement){
+      debugger
+      let header = this.$slots.header  // 返回的是含有VNODE的数组
+      let main = this.$slots.default
+      let footer = this.$slots.footer
+
+      return createElement('div',[
+        createElement('header', header),
+        createElement('main', main),
+        createElement('footer', footer)
+      ])
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{}
+  })
+</script>
+</body>
+</html>
