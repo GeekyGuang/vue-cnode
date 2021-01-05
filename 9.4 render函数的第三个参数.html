@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <child></child>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('child',{
+    // 第三个参数代表子节点，可以是String/Array
+    render(createElement){
+      return createElement('div',[
+        createElement('p','锄禾日当午'),
+        createElement('h1','汗滴禾下土')
+      ])
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{}
+  })
+</script>
+</body>
+</html>

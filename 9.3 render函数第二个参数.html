@@ -13,6 +13,7 @@
   Vue.component('child',{
     render(createElement){
       // 第二个参数可以传递html属性
+      // 第二个参数必须是对象，如果不是对象，说明不是第二个参数
       return createElement({
         template: '<div>我爱北京天安门</div>'
       }, {
