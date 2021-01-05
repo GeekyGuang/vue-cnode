@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <child></child>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('child',{
+    render(createElement){
+      // string -- html标签
+      // return createElement('h1')
+
+      // Object -- 含有数据选项的对象
+      // return createElement({
+      //   template: '<div>锄禾日当午</div>'
+      // })
+
+      // Function -- 返回含有数据选项的对象
+      let domFun = function(){
+        return {
+          template: '<div>锄禾日当午</div>'
+        }
+      }
+      return createElement(domFun())
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data: {}
+  })
+</script>
+</body>
+</html>
