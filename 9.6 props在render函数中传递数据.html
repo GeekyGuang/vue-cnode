@@ -5,9 +5,43 @@
   <title>Title</title>
 </head>
 <body>
+<div id="app">
+  <button @click="toggle">点我切换</button>
+  <my-component :show="show"></my-component>
+</div>
 <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
 <script>
-
+  Vue.component("my-component",{
+    props:['show'],
+    render(createElement){
+      let imgSrc;
+      if(this.show) {
+        imgSrc='img/001.jpg'
+      }else{
+        imgSrc='img/002.jpg'
+      }
+      return createElement('img',{
+        attrs:{
+          src: imgSrc
+        },
+        style:{
+          width:'400px',
+          height:'300px'
+        }
+      })
+    }
+  })
+let app = new Vue({
+  el: '#app',
+  data:{
+    show: true
+  },
+  methods:{
+    toggle(){
+      this.show = !this.show
+    }
+  }
+})
 </script>
 </body>
 </html>
