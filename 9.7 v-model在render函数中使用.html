@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{number}}
+  <my-component v-model="number"></my-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('my-component',{
+    render(createElement){
+      let self = this
+      return createElement('input', {
+        domProps:{
+          value: self.value
+        },
+        on:{
+          input(event){
+            self.$emit('input',event.target.value)
+          }
+        }
+
+      })
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{
+      number: 0
+    }
+  })
+</script>
+</body>
+</html>

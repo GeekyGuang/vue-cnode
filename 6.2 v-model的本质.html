@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div id="app">
+  <!-- <input type="text" v-model="number"> -->
+  <input type="text" v-bind:value="number" v-on:input="number=$event.target.value">
+  {{number}}
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+<script>
+  let app = new Vue({
+    el: "#app",
+    data:{
+      number: 0
+    }
+  })
+</script>
+</body>
+</html>
