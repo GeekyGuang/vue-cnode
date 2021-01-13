@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <my-component>
+    <template v-slot:default="props">{{props.text}}</template>
+  </my-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('my-component',{
+    render(createElement){
+      return createElement('div', this.$scopedSlots.default({
+        text:'我爱北京天安门'
+      }))
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{
+
+    }
+  })
+</script>
+</body>
+</html>
