@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-component value="haha"></my-component>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+  Vue.component('my-component',{
+    functional: true,  // 无状态，无实例this
+    props:['value'],
+    render(createElement, context){
+       alert(context.props.value)
+      alert(context.parent.msg)
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data:{
+      msg:'how are you'
+    }
+  })
+</script>
+</body>
+</html>
