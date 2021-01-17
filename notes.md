@@ -21,3 +21,8 @@ $emit事件名不要用驼峰式，html不区分大小写
 
 template标签在html中不会渲染
 
+vue create demo 创建项目
+yarn serve 启动项目
+
+vue-router不用单独安装，在创建项目时选择
+
