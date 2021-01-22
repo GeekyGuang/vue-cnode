@@ -1,7 +1,7 @@
 <template>
   <div>
-    <router-link to="helloworld">Hello World</router-link>  |
-    <router-link to="hellouniverse">Hello Universe</router-link>
+    <router-link :to="{name:'helloworld', params:{msg1:123}}">Hello World</router-link>  |
+    <router-link :to="{name:'hellouniverse', params:{msg2:456}}">Hello Universe</router-link>
   </div>
 </template>
 
