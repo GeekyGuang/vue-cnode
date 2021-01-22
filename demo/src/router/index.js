@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import HelloWorld from '@/components/HelloWorld'
+import HelloUniverse from '@/components/HelloUniverse'
 
 Vue.use(VueRouter)
 
@@ -20,9 +21,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/hello',
+    path: '/helloworld',
     name: 'Hello',
     component: HelloWorld
+  },
+  {
+    path: '/hellouniverse',
+    name: 'Universe',
+    component: HelloUniverse
   }
 ]
 
