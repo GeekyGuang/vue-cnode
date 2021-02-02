@@ -2,6 +2,11 @@
   <div class="hello">
     <h1>Axios之Get请求</h1>
     <button @click="getData">获取数据</button>
+    <ul>
+      <li v-for="item in items">
+        {{item.title}}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -12,10 +17,22 @@ Vue.prototype.$http = axios
 
 export default {
   name: 'HelloWorld',
+  data(){
+    return {
+      items:[]
+    }
+  },
   methods:{
     getData(){
-      this.$http.get('https://cnodejs.org/api/v1/topics')
+      const self = this
+      this.$http.get('https://cnodejs.org/api/v1/topics',{
+        params:{
+          page:1,
+          limit:10
+        }
+      })
       .then(function(res){
+        self.items = res.data.data
         console.log(res)
       })
       .catch(function(err){
