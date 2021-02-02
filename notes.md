@@ -26,3 +26,15 @@ yarn serve 启动项目
 
 vue-router不用单独安装，在创建项目时选择
 
+
+安装axios
+```
+npm install --save axios
+```
+
+安装完后用下面命令要更新依赖，否则yarn serve报错
+```
+npm install
+```
+
+

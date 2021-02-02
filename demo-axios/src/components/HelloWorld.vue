@@ -1,21 +1,17 @@
 <template>
-  <div>
-    <h1> Axios之Get请求</h1>
-    <button @click="getDate">获取数据</button>
+  <div class="hello">
+    <h1>Axios之Get请求</h1>
+    <button @click="getData">获取数据</button>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
 import axios from 'axios'
+import Vue from 'vue'
 Vue.prototype.$http = axios
 
 export default {
-  data(){
-    return {
-
-    }
-  },
+  name: 'HelloWorld',
   methods:{
     getData(){
       this.$http.get('https://cnodejs.org/api/v1/topics')
