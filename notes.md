@@ -37,4 +37,12 @@ npm install --save axios
 npm install
 ```
 
+axios POST请求，需要用qs插件转换参数格式成form-data
+如果没有qs要另外安装(实际有的)
+```
+npm install qs
+```
+
+
+
 

@@ -38,6 +38,15 @@ export default {
       .catch(function(err){
         console.log(err)
       })
+    },
+    // post请求
+    postData(){
+      this.$http.post(url, qs.stringify({
+        page:1,
+        limit:2
+      }))
+      .then()
+      .catch()
     }
   }
 }
