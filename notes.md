@@ -43,6 +43,11 @@ axios POST请求，需要用qs插件转换参数格式成form-data
 npm install qs
 ```
 
+vuex教程
+https://vuex.vuejs.org/zh/guide/
+
+
+用计算属性获取vuex状态或者全局变量值
 
 
 

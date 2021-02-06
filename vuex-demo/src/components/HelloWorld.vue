@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-     {{this.$store.state.num}}
+    <button @click="setNum">点我</button>
+     {{count}}
   </div>
 </template>
 
@@ -9,6 +10,17 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods:{
+    setNum(){
+      this.$store.dispatch('increment')
+    }
+  },
+  // 用计算属性获取状态
+  computed:{
+    count(){
+      return this.$store.state.num
+    }
   }
 }
 </script>

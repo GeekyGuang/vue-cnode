@@ -8,8 +8,14 @@ export default new Vuex.Store({
     num:100
   },
   mutations: {
+    increment(state){
+      state.num++
+    }
   },
   actions: {
+    increment(context){
+      context.commit('increment')
+    }
   },
   modules: {
   }
